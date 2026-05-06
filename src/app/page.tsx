@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Hero } from "@/components/home/hero";
 import { getCategories } from "@/lib/queries/categories";
-import { getCities, isSupabaseConfigured } from "@/lib/queries/cities";
+import { getCities } from "@/lib/queries/cities";
 
 export default async function HomePage() {
   const [cities, categories] = await Promise.all([getCities(), getCategories()]);
@@ -9,15 +9,6 @@ export default async function HomePage() {
   return (
     <div className="space-y-10">
       <Hero cities={cities} categories={categories} />
-
-      {!isSupabaseConfigured() ? (
-        <section className="rounded-3xl border border-amber-200 bg-amber-50 px-6 py-5 text-amber-900">
-          <p className="font-medium">Modo demo activo.</p>
-          <p className="mt-1 text-sm leading-7">
-            Ya dejé datos de ejemplo funcionando para que mañana solo conectes Supabase y empieces a cargar negocios reales.
-          </p>
-        </section>
-      ) : null}
 
       <section className="grid gap-6 md:grid-cols-3">
         {categories.map((category) => (

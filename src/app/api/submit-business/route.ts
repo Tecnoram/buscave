@@ -25,7 +25,7 @@ export async function POST(request: Request) {
   }
 
   if (!isSupabaseConfigured()) {
-    return NextResponse.redirect(new URL("/agregar-negocio?ok=demo", request.url));
+    return NextResponse.redirect(new URL("/agregar-negocio?ok=local", request.url));
   }
 
   const supabase = createAdminSupabaseClient();

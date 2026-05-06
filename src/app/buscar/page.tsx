@@ -95,9 +95,9 @@ export default async function SearchPage({
           results.map((listing) => <ListingCard key={listing.id} listing={listing} />)
         ) : (
           <div className="rounded-3xl border border-dashed border-slate-300 bg-white p-10 text-center">
-            <h2 className="text-2xl font-semibold text-slate-950">Todavía no tengo ese resultado cargado.</h2>
+            <h2 className="text-2xl font-semibold text-slate-950">No encontramos resultados para esa búsqueda.</h2>
             <p className="mt-3 text-sm leading-7 text-slate-600">
-              Eso es útil: anótalo como demanda real. Puedes comenzar cargando manualmente esos negocios en Supabase.
+              Prueba con otra ciudad, categoría o término de búsqueda.
             </p>
           </div>
         )}

@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     const body = await request.json();
 
     if (!isSupabaseConfigured()) {
-      return NextResponse.json({ ok: true, mode: "demo" });
+      return NextResponse.json({ ok: true });
     }
 
     const supabase = createAdminSupabaseClient();

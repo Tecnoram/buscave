@@ -11,7 +11,7 @@ MVP inicial para validar una web de descubrimiento local enfocada en Venezuela.
 - Formulario para captar negocios
 - API routes para búsqueda, clics y submissions
 - Schema SQL y seed para Supabase
-- Modo demo local si todavía no configuras Supabase
+
 
 ## Stack
 
@@ -60,7 +60,7 @@ Opción recomendada: desplegar como app Node.js conectada a este repo.
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
    - `SUPABASE_SERVICE_ROLE_KEY`
 5. Asegúrate de que Hostinger use una versión moderna de Node compatible con Next 16.
-6. Si todavía no conectas Supabase, la app levanta en modo demo.
+
 
 ## Próximos pasos sugeridos
 
