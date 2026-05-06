@@ -1,4 +1,4 @@
-const fallbackUrl = "https://buscave.vercel.app";
+const fallbackUrl = "https://skannin.app";
 
 export const siteConfig = {
   name: "BuscaVE",
