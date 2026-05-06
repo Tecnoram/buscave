@@ -1,0 +1,12 @@
+import { createClient } from "@supabase/supabase-js";
+
+export function createAdminSupabaseClient() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!url || !serviceRoleKey) {
+    throw new Error("Falta la configuración admin de Supabase.");
+  }
+
+  return createClient(url, serviceRoleKey);
+}
