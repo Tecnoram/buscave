@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 function getMessage(ok: string | undefined) {
   if (ok === "1") {
     return {
-      title: "Negocio enviado correctamente",
+      title: "Negocio agregado correctamente",
       description: "Recibimos tu información y ya quedó registrada para revisión.",
       tone: "success",
     };

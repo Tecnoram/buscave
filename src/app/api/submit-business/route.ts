@@ -25,7 +25,9 @@ export async function POST(request: Request) {
   }
 
   if (!isSupabaseConfigured()) {
-    return NextResponse.redirect(new URL("/agregar-negocio?ok=local", request.url));
+    return NextResponse.redirect(new URL("/agregar-negocio?ok=local", request.url), {
+      status: 303,
+    });
   }
 
   const supabase = createAdminSupabaseClient();
@@ -43,5 +45,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: error.message }, { status: 400 });
   }
 
-  return NextResponse.redirect(new URL("/agregar-negocio?ok=1", request.url));
+  return NextResponse.redirect(new URL("/agregar-negocio?ok=1", request.url), {
+    status: 303,
+  });
 }
