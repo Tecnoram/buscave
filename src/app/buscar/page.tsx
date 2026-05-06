@@ -1,5 +1,7 @@
+import type { Metadata } from "next";
 import { ListingCard } from "@/components/search/listing-card";
 import { SearchBar } from "@/components/search/search-bar";
+import { siteConfig } from "@/config/site";
 import { logSearch } from "@/lib/queries/analytics";
 import { getCategories } from "@/lib/queries/categories";
 import { getCities } from "@/lib/queries/cities";
@@ -8,6 +10,40 @@ import { searchListings } from "@/lib/queries/search";
 function getFirst(value: string | string[] | undefined) {
   if (Array.isArray(value)) return value[0] ?? "";
   return value ?? "";
+}
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}): Promise<Metadata> {
+  const params = await searchParams;
+  const q = getFirst(params.q);
+  const ciudad = getFirst(params.ciudad);
+  const categoria = getFirst(params.categoria);
+
+  const titleParts = [q && `Buscar ${q}`, ciudad, categoria].filter(Boolean);
+  const title = titleParts.length > 0 ? titleParts.join(" en ") : "Buscar negocios y productos";
+  const description = q
+    ? `Resultados para ${q}${ciudad ? ` en ${ciudad}` : ""}${categoria ? ` dentro de ${categoria}` : ""} en BuscaVE.`
+    : siteConfig.description;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: "/buscar",
+    },
+    openGraph: {
+      title: `${title} | ${siteConfig.name}`,
+      description,
+      type: "website",
+    },
+    twitter: {
+      title: `${title} | ${siteConfig.name}`,
+      description,
+    },
+  };
 }
 
 export default async function SearchPage({

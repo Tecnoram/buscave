@@ -1,3 +1,14 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Agregar negocio",
+  description:
+    "Registra tu negocio en BuscaVE para empezar a recibir visibilidad y contactos en Venezuela.",
+  alternates: {
+    canonical: "/agregar-negocio",
+  },
+};
+
 export default function AddBusinessPage() {
   return (
     <div className="mx-auto max-w-3xl rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">

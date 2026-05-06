@@ -36,6 +36,7 @@ Abre:
 
 1. Copia `.env.example` a `.env.local`
 2. Llena:
+   - `NEXT_PUBLIC_SITE_URL`
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
    - `SUPABASE_SERVICE_ROLE_KEY`
@@ -54,6 +55,7 @@ Opción recomendada: desplegar como app Node.js conectada a este repo.
    - Build command: `npm run build`
    - Start command: `npm run start`
 4. Configura las variables de entorno en Hostinger:
+   - `NEXT_PUBLIC_SITE_URL` (ej: `https://tudominio.com`)
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
    - `SUPABASE_SERVICE_ROLE_KEY`

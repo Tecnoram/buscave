@@ -111,3 +111,20 @@ export async function getBusinessBySlug(slug: string) {
     return null;
   }
 }
+
+export async function getBusinessSlugs() {
+  if (!isSupabaseConfigured()) {
+    return getDemoBusinesses().filter((item) => item.active).map((item) => item.slug);
+  }
+
+  try {
+    const supabase = createServerSupabaseClient();
+    const { data, error } = await supabase.from("businesses").select("slug").eq("active", true);
+
+    if (error || !data) return [];
+
+    return data.map((item) => item.slug);
+  } catch {
+    return [];
+  }
+}
