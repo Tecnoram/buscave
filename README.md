@@ -50,13 +50,11 @@ Opción recomendada: desplegar como app Node.js conectada a este repo.
 
 1. Sube este proyecto a GitHub.
 2. En Hostinger, crea una nueva aplicación Node.js o conecta un deploy desde GitHub.
-3. Asegúrate de usar Node 20 LTS o superior (Next 16 requiere Node >= 20.9.0).
-   - Si Hostinger detecta `.nvmrc`, este repo ya fija Node 20.
-4. Usa estas opciones de build:
+3. Usa estas opciones de build:
    - Install command: `npm install`
    - Build command: `npm run build`
    - Start command: `npm run start`
-5. Configura las variables de entorno en Hostinger:
+4. Configura las variables de entorno en Hostinger:
    - `NEXT_PUBLIC_SITE_URL` (ej: `https://tudominio.com`)
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
